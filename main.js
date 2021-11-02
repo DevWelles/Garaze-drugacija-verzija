@@ -11,17 +11,30 @@ const ispis = new Ispis(ourStore)
 
 const brojGaraza = (store) => {
   store.brojGaraza = Number(prompt('Unesite broj garaza(N): '));
-  if (!(Number.isFinite(store.brojGaraza))){
+  if (isNaN(store.brojGaraza) || store.brojGaraza == ' ') {
     console.log('Molimo ispravno unesite broj!')
     console.log(typeof store.brojGaraza)
-   brojGaraza(store);
-    
-  } else {
+    brojGaraza(store);
+  } 
     return store.brojGaraza;
-  }
-  
 }
 brojGaraza(ourStore);
+console.log(ourStore.brojGaraza);
+
+
+// const brojGaraza = () => {
+//   userInput = Number(prompt('Unesite broj garaza(N): '));
+//   if(isNaN(userInput) || userInput == ' ') {
+//     console.log('Molimo ispravno unesite broj!')
+//     console.log(typeof userInput)
+//     brojGaraza();
+//   } return userInput; 
+// };
+
+// ourStore.brojGaraza = brojGaraza();
+// console.log(ourStore.brojGaraza);
+
+
 
 for (let i = 1; i<ourStore.brojGaraza+1; i++ ) {
   ourStore.garaze.push(new Garaza(i)) //za napuniti array instancama garaža da svaki this.ime bude zapravo broj od 1 na dalje
