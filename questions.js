@@ -18,9 +18,9 @@ module.exports = class Questions {
   // }
 
 
-  // Ako je izmjenim na ovaj način da bude while loop onda kod niakd ne krene dalje dok se ne zadovolji while loop
-  // ali moram staviti pomovni prompt na let varijablu userInput, jer ako stavim da ponovno zove this.brojGaraza stori se infinit while loop
-  //mislim da mi ova najbolje radi jer najmanje vremenatroši pošto vrti samo while loop a ne ponovne pozive funkcije
+  // Ako je izmjenim na ovaj način da bude while loop onda kod nikad ne krene dalje dok se ne zadovolji while loop
+  // ali moram staviti ponovni prompt na let varijablu userInput, jer ako stavim da ponovno zove this.brojGaraza() stvori se infinit while loop
+  //mislim da mi ova najbolje radi jer najmanje vremena troši pošto vrti samo while loop a ne ponovne pozive funkcije
   brojGaraza () {
     let userInput = Number(prompt('Unesite broj garaza(N): '));
     while (isNaN(userInput) || userInput == ' ' || userInput <= 0) {
@@ -36,8 +36,6 @@ module.exports = class Questions {
   //ova mi radi sa if statementom rekurzivnim pozivom this.brojGaraza mislim da zato sto svaki put seta this.brojGaraza
   //jer u consol.log vidim da izvrti sve prompte samo zadane sa zadnjom vrijednosti koja je bila ispravna
   
-
-
 //   brojGaraza () {
 //   this.store.brojGaraza = Number(prompt('Unesite broj garaza(N): '));
 //   if (isNaN(this.store.brojGaraza) || this.store.brojGaraza == ' ') {
