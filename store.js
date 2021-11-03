@@ -1,3 +1,5 @@
+const Garaza = require('./garaza')
+const Predmet = require('./predmet')
 //store će sadržavati sve objekte garaža u jednoj listi
 //user navede broj garaža i onda ja popunim tu listu sa objektima garaža i svakoj dam ime po broju
 
@@ -31,6 +33,23 @@ module.exports = class Store {
     this._brojPredmeta = newNum //ovo se pozove kad user na promptu u main fileu upiše broj predmeta(M)
   }
   
+  addGarazaToStore (brojGaraza) {               //da li je bolje ovu funkciju napisati ovako sa parametrom 
+    for (let i = 1; i<brojGaraza+1; i++ ) {
+      this.garaze.push(new Garaza(i)) 
+    }
+  }
+
+  addGarazaToStore() {                          // ili bez parametra nego da direktno uzme property this.brojgaraza
+    for (let i = 1; i<this.brojGaraza+1; i++ ) { //i onda ovisno kako cemo ju pozvati u main.js
+      this.garaze.push(new Garaza(i)) 
+    }
+  }
+
+  addPredmetToStore() {
+    for (let i = 1; i<this.brojPredmeta+1; i++) {
+      this.predmeti.push(new Predmet(i))
+    }
+  }
 
   addPredmetToGaraza () { //dodaje predmet u pripadajuću garažu
     for (let i = 0; i < this.predmeti.length; i++) {
